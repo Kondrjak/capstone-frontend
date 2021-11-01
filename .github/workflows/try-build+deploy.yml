@@ -9,18 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: production-heroku
-      url: https://dev-capstone-frontend.herokuapp.com/
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
       - uses: actions/checkout@v2
-      - name: d
-        run: heroku git:remote -a dev-capstone-frontend
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with: 
-          buildpack: mars/create-react-app
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "dev-capstone-frontend" #Must be unique in Heroku
           heroku_email: "{{secrets.HEROKU_MAIL}}"
+          healthcheck: https://dev-capstone-frontend.herokuapp.com/
