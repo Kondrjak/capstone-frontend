@@ -4,6 +4,8 @@
 
 ## Badges
 
+Sonar Cloud
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
 
 ## Development Protocol
