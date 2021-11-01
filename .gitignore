@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+<<<<<<< HEAD
 # idea
 dev-capstone-frontend.iml
 *.iml
@@ -8,6 +9,12 @@ dev-capstone-frontend.iml
 # yarn
 yarn.lock
 
+=======
+# intelliJ idea
+*.iml
+.idea
+dev-capstone-frontend.iml
+>>>>>>> df95c838eb10605c7ca40b35b98e547baf59a17a
 
 # dependencies
 /node_modules
@@ -30,3 +37,5 @@ yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
+/src/react-app-env.d.ts
