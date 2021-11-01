@@ -1,4 +1,4 @@
-name: Deploy
+name: Try(Build,Deploy)
 
 on:
   push:
