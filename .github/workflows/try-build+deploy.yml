@@ -17,27 +17,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{ secrets.HEROKU_DEV_APP_NAME }} #Must be unique in Heroku
           heroku_email: ${{ secrets.HEROKU_MAIL }}
-          healthcheck: https://${{ secrets.HEROKU_DEV_APP_NAME }}.herokuapp.com/health
+          healthcheck: https://${{ secrets.HEROKU_DEV_APP_NAME }}.herokuapp.com
           checkstring: "ok"
-  deploy_test:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: production-heroku
-      url: https://dev-capstone-frontend.herokuapp.com
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to heroku
-        run: heroku login
-      - name: Configure heroku git:remote
-        run: heroku git:remote -a ${{ secrets.HEROKU_DEV_APP_NAME }}
-      - name: Push to heroku
-        run: git push heroku main
-  health_check:
-    runs-on: ubuntu-latest
-    needs: deploy_test
-    steps:
-    - name: get request to url
-      run: curl -sSf https://${{ secrets.HEROKU_DEV_APP_NAME }}.herokuapp.com > /dev/null
