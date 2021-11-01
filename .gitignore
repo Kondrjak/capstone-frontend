@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-<<<<<<< HEAD
+# npm
+package-lock.json
+
 # idea
 dev-capstone-frontend.iml
 *.iml
@@ -9,12 +11,10 @@ dev-capstone-frontend.iml
 # yarn
 yarn.lock
 
-=======
 # intelliJ idea
 *.iml
 .idea
 dev-capstone-frontend.iml
->>>>>>> df95c838eb10605c7ca40b35b98e547baf59a17a
 
 # dependencies
 /node_modules
