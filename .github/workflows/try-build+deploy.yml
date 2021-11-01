@@ -16,6 +16,8 @@ jobs:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
       - uses: actions/checkout@v2
+      - name: d
+        run: heroku git:remote -a dev-capstone-frontend
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with: 
           buildpack: mars/create-react-app
