@@ -1,4 +1,4 @@
-# Capstone Frontend - bootcamp neuefische.de - Roman Kondrjakow
+# Capstone Frontend - bootcamp neuefische.de
 
 ## Badges
 
