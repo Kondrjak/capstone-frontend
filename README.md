@@ -17,3 +17,5 @@
 - introduced prettier
 - dependencies: @types/node, @types/react, @types/react-dom, typescript, react, react-dom", react-scripts, react-icons, react-router-dom, axios, styled-components
 - devDependencies: prettier
+- add sonar code review workflow
+
