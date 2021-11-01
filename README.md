@@ -15,7 +15,7 @@
 - created project and rolled out heroku ci using https://github.com/mars/create-react-app-buildpack#user-content-continue-development
 - changed project language to typescript
 - introduced prettier
-- dependencies: @types/node, @types/react, @types/react-dom, typescript, react, react-dom", react-scripts, react-icons, react-router-dom, axios, styled-components
+- dependencies: @types/node, @types/react, @types/react-dom, @mui/material, typescript, react, react-dom, react-scripts, react-icons, react-router-dom, axios, styled-components
 - devDependencies: prettier
 - add sonar code review workflow
 - add workflow to test build and deployment on pull request
