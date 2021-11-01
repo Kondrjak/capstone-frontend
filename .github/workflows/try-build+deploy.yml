@@ -7,13 +7,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy_test:
     runs-on: ubuntu-latest
+    environment:
+      name: production-heroku
+      url: https://${{HEROKU_DEV_APP_NAME}}.herokuapp.com/
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with: 
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "dev-capstone-frontend" #Must be unique in Heroku
-          heroku_email: "{{secrets.HEROKU_MAIL}}"
-          healthcheck: https://dev-capstone-frontend.herokuapp.com/
+      - name: Login to heroku
+        run: heroku login
+      - name: Configure heroku git:remote
+        run: heroku git:remote -a ${{HEROKU_DEV_APP_NAME}}
+      - name: Push to heroku
+        run: git push heroku main
+  health_check:
+    runs-on: ubuntu-latest
+    needs: deploy_test
+    steps:
+    - name: get request to url
+      run: curl -sSf https://${{HEROKU_DEV_APP_NAME}}.herokuapp.com > /dev/null
