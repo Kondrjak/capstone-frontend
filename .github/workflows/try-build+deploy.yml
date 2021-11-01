@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production-heroku
-      url: https://dev-capstone-frontend.herokuapp.com/
+      url: ${{secrets.HEROKU_DEV_APP_NAME}}
     env:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
@@ -19,7 +19,7 @@ jobs:
       - name: Login to heroku
         run: heroku login
       - name: Configure heroku git:remote
-        run: heroku git:remote -a ${{HEROKU_DEV_APP_NAME}}
+        run: heroku git:remote -a ${{secrets.HEROKU_DEV_APP_NAME}}
       - name: Push to heroku
         run: git push heroku main
   health_check:
@@ -27,4 +27,4 @@ jobs:
     needs: deploy_test
     steps:
     - name: get request to url
-      run: curl -sSf https://${{HEROKU_DEV_APP_NAME}}.herokuapp.com > /dev/null
+      run: curl -sSf https://${{secrets.HEROKU_DEV_APP_NAME}}.herokuapp.com > /dev/null
