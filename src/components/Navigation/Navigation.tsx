@@ -16,16 +16,16 @@ export default function Navigation() {
             <AppBar>
                 <Toolbar>
                     <NavItem>
-                        Type Unicode
+                        ✍ Write
                     </NavItem>
                     <NavItem>
-                        Key Mappings
+                        ⌨ Mappings
                     </NavItem>
                     <NavItem>
-                        Groups
+                        𐌎 Groups
                     </NavItem>
                     <NavItem>
-                        Ranges
+                        ⁞ Ranges
                     </NavItem>
                 </Toolbar>
             </AppBar>
