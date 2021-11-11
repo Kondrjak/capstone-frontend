@@ -7,7 +7,7 @@ import Navigation from "../Navigation/Navigation";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-export default function App() {
+export default function Main() {
     return (
         <ThemeProvider theme={themes}>
             <CssBaseline/>
