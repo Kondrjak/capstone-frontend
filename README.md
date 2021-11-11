@@ -8,6 +8,13 @@ Sonar Cloud
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
 
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
+
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
+
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
 ## Development Protocol
 
 ### 01.11.2021
