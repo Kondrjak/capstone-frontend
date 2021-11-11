@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          branch: main
+          branch: ${{ github.head_ref }}
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: dev-capstone-frontend
           heroku_email: ${{ secrets.HEROKU_MAIL }}
