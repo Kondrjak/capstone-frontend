@@ -1,8 +1,6 @@
 name: sonar-clean-code
 on:
-  pull_request:
-    branches:
-      - main
+  push:
   # allows running this workflow manually from the github actions tab
   workflow_dispatch:
 

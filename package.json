@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/styled": "^11.3.0",
     "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
     "@mui/material": "^5.0.6",
+    "@mui/x-data-grid": "^4.0.2",
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.28",
     "@types/react": "^17.0.27",
@@ -16,12 +17,15 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^3.4.4",
+    "simple-keyboard": "^3.3.22",
     "styled-components": "^5.3.3",
     "typescript": "^3.2.1"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.2",
     "@types/styled-components": "^5.1.15",
-    "prettier": "2.4.1"
+    "prettier": "2.4.1",
+    "react-simple-keyboard": "^3.3.31"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -9,23 +9,38 @@ function NavItem(props:any) {
     return (<Button variant="contained"> {props.children} </Button>);
 }
 
-export default function Navigation() {
+type Props = {
+
+}
+export default function Navigation(props:Props) {
     const trigger = useScrollTrigger()
     return (
         <Slide appear={false} direction="down" in={!trigger}>
             <AppBar>
                 <Toolbar>
                     <NavItem>
-                        ✍ Write
+                        <span role="img" aria-label="Hand with pen">
+                            ✍
+                        </span>
+                        Write
                     </NavItem>
                     <NavItem>
-                        ⌨ Mappings
+                        <span role="img" aria-label="Keyboard">
+                            ⌨
+                        </span>
+                        Mappings
                     </NavItem>
                     <NavItem>
-                        𐌎 Groups
+                        <span role="img" aria-label="Codepoint">
+                            𐌎
+                        </span>
+                        Groups
                     </NavItem>
                     <NavItem>
-                        ⁞ Ranges
+                        <span role="img" aria-label="Codepoint">
+                            ⁞
+                        </span>
+                        Ranges
                     </NavItem>
                 </Toolbar>
             </AppBar>
