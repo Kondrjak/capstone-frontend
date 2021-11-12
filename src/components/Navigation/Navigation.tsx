@@ -1,49 +1,53 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import useScrollTrigger from "@mui/material/useScrollTrigger";
-import Slide from "@mui/material/Slide";
 import {Button} from "@mui/material";
+import HideOnScrollNav from "./HideOnScrollNav";
 
-function NavItem(props:any) {
-    return (<Button variant="contained"> {props.children} </Button>);
+import {NavLink} from "react-router-dom";
+
+type ItemProps = {
+    symbol: any,
+    label: string,
+    text: string,
 }
-
-type Props = {
-
-}
-export default function Navigation(props:Props) {
-    const trigger = useScrollTrigger()
+function NavItem({symbol, label, text}: ItemProps) {
     return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar>
-                <Toolbar>
-                    <NavItem>
-                        <span role="img" aria-label="Hand with pen">
-                            ✍
-                        </span>
-                        Write
-                    </NavItem>
-                    <NavItem>
-                        <span role="img" aria-label="Keyboard">
-                            ⌨
-                        </span>
-                        Mappings
-                    </NavItem>
-                    <NavItem>
-                        <span role="img" aria-label="Codepoint">
-                            𐌎
-                        </span>
-                        Groups
-                    </NavItem>
-                    <NavItem>
-                        <span role="img" aria-label="Codepoint">
-                            ⁞
-                        </span>
-                        Ranges
-                    </NavItem>
-                </Toolbar>
-            </AppBar>
-        </Slide>
+        <Button variant="contained">
+            <span role="img" aria-label={label}>
+                {symbol}
+            </span>
+            {text}
+        </Button>);
+}
+
+type Props = {}
+export default function Navigation(props: Props) {
+    return (
+        <HideOnScrollNav>
+            <NavLink to="/write-text">
+                <NavItem symbol="✍"
+                          label="write"
+                          text="text"
+                />
+            </NavLink>
+            <NavLink to="/keyboard-mappings">
+                <NavItem symbol="⌨"
+                          label="keyboard"
+                          text="mappings"
+                />
+            </NavLink>
+            <NavLink to="/codepoint-groups">
+                <NavItem symbol="𐌎"
+                          label="codepoint"
+                          text="groups"
+                />
+            </NavLink>
+            <NavLink to="/unicode-ranges">
+                <NavItem symbol="⁞"
+                          label="unicode"
+                          text="ranges"
+                />
+            </NavLink>
+        </HideOnScrollNav>
     )
 }
+

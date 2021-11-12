@@ -1,22 +1,16 @@
 import React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import {Box, Container} from "@mui/material";
+import HorizontalSnap from "../Scrollables/HorizontalSnap";
 
-function useData(rowLength:number, columnLength:number) {
-    const [data, setData] = React.useState({ columns: [], rows: [] });
-
-
-    return data;
-}
-
-type Props = {
-
-}
-export default function CpGallery() {
-    const data = useData(100, 1000);
-
+type Props = {}
+export default function CpGallery(props: Props) {
     return (
-        <div style={{ height: 400, width: '100%' }}>
-            <DataGrid {...data} columnBuffer={2} />
-        </div>
+        <Container>
+            <Box>
+                <HorizontalSnap>
+                    ""
+                </HorizontalSnap>
+            </Box>
+        </Container>
     );
 }

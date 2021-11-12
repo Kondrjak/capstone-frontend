@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Keyboard from "react-simple-keyboard"
 import "react-simple-keyboard/build/css/index.css";
 
 type Props = {
 }
 export default function Write(props: Props) {
-
+const keyboardRef = useRef(null)
     const [input, setInput] = useState("")
     const [layout, setLayout] = useState("default")
 
@@ -25,7 +25,6 @@ export default function Write(props: Props) {
 
     function onChangeInput(event:any) {
         setInput(event.target.value)
-        //keyboard.setInput(input);
     }
     return (
         <div>
@@ -35,6 +34,7 @@ export default function Write(props: Props) {
                 onChange={onChangeInput}
             />
             <Keyboard
+                keyboardRef={ref=> keyboardRef.current = ref}
                 layoutName={layout}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
