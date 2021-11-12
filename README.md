@@ -12,9 +12,8 @@ Sonar Cloud
 
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
-
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
+
 ## Development Protocol
 
 ### 01.11.2021
@@ -26,25 +25,5 @@ Sonar Cloud
 - devDependencies: prettier
 - add sonar code review workflow
 - add workflow to test build and deployment on pull request
-
-<plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
 
