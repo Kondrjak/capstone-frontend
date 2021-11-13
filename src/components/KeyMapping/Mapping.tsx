@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function KeyMappings(){
+export default function Mapping(){
     return (<div></div>)
 }

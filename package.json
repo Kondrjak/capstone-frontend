@@ -17,7 +17,9 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^3.4.4",
+    "scrollable-component": "^1.1.2",
     "simple-keyboard": "^3.3.22",
+    "simple-keyboard-layouts": "^3.0.222",
     "styled-components": "^5.3.3",
     "typescript": "^3.2.1"
   },
@@ -27,11 +29,23 @@
     "prettier": "2.4.1",
     "react-simple-keyboard": "^3.3.31"
   },
+  "vendorCopy": [
+    {
+      "from": "node_modules/someDependency/someDependency.js",
+      "to": "public/vendor/someDependency.js"
+    },
+    {
+      "from": "node_modules/someOtherDependency/someOtherDependency.js",
+      "to": "public/vendor/someOtherDependency.js"
+    }
+  ],
   "scripts": {
+    "preinstall": "rimraf public/vendor",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "vendor-copy"
   },
   "eslintConfig": {
     "extends": [
