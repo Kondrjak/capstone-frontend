@@ -3,9 +3,9 @@ import '../../index'
 import CssBaseline from "@mui/material/CssBaseline";
 import {ThemeProvider} from "@mui/material";
 import {themes} from "../../themes/themes";
-import Navigation from "../Navigation/Navigation";
+import Navigation from "./Navigation";
 import Write from "../Text/Write";
-import Mapping from "../KeyMappings/Mapping";
+import Mapping from "../KeyMapping/Mapping";
 import {Route, Switch, useHistory} from "react-router-dom";
 import UcRanges from "../CodePoint/UcRanges";
 import CpGallery from "../CodePoint/CpGallery";
