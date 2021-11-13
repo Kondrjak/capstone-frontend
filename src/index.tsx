@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './components/MainFrame/Main';
+import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Main/>
-    </React.StrictMode>,
+    <BrowserRouter>
+        <React.StrictMode>
+            <Main/>
+        </React.StrictMode>
+    </BrowserRouter>,
     document.getElementById('root')
 );

@@ -1,34 +1,53 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import useScrollTrigger from "@mui/material/useScrollTrigger";
-import Slide from "@mui/material/Slide";
 import {Button} from "@mui/material";
+import HideOnScrollNav from "./HideOnScrollNav";
 
-function NavItem(props:any) {
-    return (<Button variant="contained"> {props.children} </Button>);
+import {NavLink} from "react-router-dom";
+
+type ItemProps = {
+    symbol: any,
+    label: string,
+    text: string,
+}
+function NavItem({symbol, label, text}: ItemProps) {
+    return (
+        <Button variant="contained">
+            <span role="img" aria-label={label}>
+                {symbol}
+            </span>
+            {text}
+        </Button>);
 }
 
-export default function Navigation() {
-    const trigger = useScrollTrigger()
+type Props = {}
+export default function Navigation(props: Props) {
     return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar>
-                <Toolbar>
-                    <NavItem>
-                        ✍ Write
-                    </NavItem>
-                    <NavItem>
-                        ⌨ Mappings
-                    </NavItem>
-                    <NavItem>
-                        𐌎 Groups
-                    </NavItem>
-                    <NavItem>
-                        ⁞ Ranges
-                    </NavItem>
-                </Toolbar>
-            </AppBar>
-        </Slide>
+        <HideOnScrollNav>
+            <NavLink to="/write-text">
+                <NavItem symbol="✍"
+                          label="write"
+                          text="text"
+                />
+            </NavLink>
+            <NavLink to="/keyboard-mappings">
+                <NavItem symbol="⌨"
+                          label="keyboard"
+                          text="mappings"
+                />
+            </NavLink>
+            <NavLink to="/codepoint-groups">
+                <NavItem symbol="𐌎"
+                          label="codepoint"
+                          text="groups"
+                />
+            </NavLink>
+            <NavLink to="/unicode-ranges">
+                <NavItem symbol="⁞"
+                          label="unicode"
+                          text="ranges"
+                />
+            </NavLink>
+        </HideOnScrollNav>
     )
 }
+
