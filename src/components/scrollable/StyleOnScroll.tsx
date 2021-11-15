@@ -1,7 +1,6 @@
 import React from "react";
-import { useScrollTrigger } from "@material-ui/core";
-import { alpha } from "@material-ui/core/styles";
 import {red} from "@mui/material/colors";
+import {alpha, useScrollTrigger} from "@mui/material";
 
 export default function StyleOnScroll(props:any){
     const { children, threshold } = props;
