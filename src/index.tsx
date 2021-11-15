@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/MainFrame/Main';
+import Main from './components/main/Main';
 import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
