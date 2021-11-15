@@ -3,11 +3,6 @@
 # npm
 package-lock.json
 
-# idea
-dev-capstone-frontend.iml
-*.iml
-.idea
-
 # yarn
 yarn.lock
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button} from "@mui/material";
-import HideOnScrollNav from "./HideOnScrollNav";
+import HideOnScrollNav from "../scrollable/HideOnScrollNav";
 
 import {NavLink} from "react-router-dom";
 

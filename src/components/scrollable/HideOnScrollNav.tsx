@@ -8,17 +8,14 @@ type Props = { children: any }
 export default function HideOnScrollNav(props: Props) {
     const trigger = useScrollTrigger()
     return (<>
-        <AppBar>
-            <Slide appear={false} direction="down" in={!trigger}>
+        <Slide appear={false} direction="down" in={!trigger}>
+            <AppBar>
                 <Toolbar>
                     {props.children}
                 </Toolbar>
-            </Slide>
-        </AppBar>
-        {/* workaround to make the content appear exactly below the menu,
-            if next 3 lines are removed, the menu might overlap with page content*/}
-        <Slide appear={false} direction="down" in={!trigger}>
-            <Toolbar/>
+            </AppBar>
         </Slide>
+        {/* workaround to make the content appear exactly below the menu*/}
+        <div style={{minHeight: "64px"}}/>
     </>)
 }
