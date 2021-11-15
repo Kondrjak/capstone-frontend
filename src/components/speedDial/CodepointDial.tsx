@@ -9,7 +9,7 @@ const actions = [
 ];
 
 type Props = { fontSymbol: string }
-export default function CodePointDial({fontSymbol}: Props) {
+export default function CodepointDial({fontSymbol}: Props) {
     return (<DialOnHover fontSymbol={fontSymbol} actions={actions}/>
     );
 }

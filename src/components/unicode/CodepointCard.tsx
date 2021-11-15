@@ -1,7 +1,7 @@
 import {Button, Paper, Typography} from "@mui/material";
 import HorizontalScroll from "../scrollable/HorizontalScroll";
 import React from "react";
-import CodePointDial from "../speedDial/CodePointDial";
+import CodepointDial from "../speedDial/CodepointDial";
 
 type Props = {
     group: { "code-points": string[]; name: string; "verbose-name": string },
@@ -26,7 +26,7 @@ export default function CodepointCard({group, handleKeyboard, handleNewKey}: Pro
                 </Button>
                 {group["code-points"].map(symbol =>
                     <Button key={symbol} onClick={e=>handleClick(symbol)}>
-                        <CodePointDial fontSymbol={symbol}/>
+                        <CodepointDial fontSymbol={symbol}/>
                     </Button>
                 )}
                 <Button key="verbose">
