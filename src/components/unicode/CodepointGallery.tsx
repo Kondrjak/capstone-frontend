@@ -20,7 +20,7 @@ export default function CodepointGallery({codepointGroups}: Props) {
     };
 
     return (
-        <Container style={{padding: "3px"}}>
+        <>
             <Drawer
                 anchor="bottom"
                 open={isKeyboardShown}
@@ -32,13 +32,15 @@ export default function CodepointGallery({codepointGroups}: Props) {
                     setKeyLayout={setKeyLayout}
                     showKeyboard={showKeyboard}/>
             </Drawer>
-            {codepointGroups.map((
-                group: CodepointGroup,
-                index: number) => <CodepointCard
-                key={index}
-                handleKeyboard={showKeyboard}
-                handleNewKey={setNewKey}
-                group={group}/>)}
-        </Container>
+            <Container style={{padding: "3px"}}>
+                {codepointGroups.map((
+                    group: CodepointGroup,
+                    index: number) => <CodepointCard
+                    key={index}
+                    handleKeyboard={showKeyboard}
+                    handleNewKey={setNewKey}
+                    group={group}/>)}
+            </Container>
+        </>
     );
 }
