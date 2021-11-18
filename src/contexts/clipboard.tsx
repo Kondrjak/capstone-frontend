@@ -3,7 +3,8 @@ import {createContext} from "react";
 import useRevolver from "../hooks/Revolver";
 import useBin from "../hooks/PasteBin";
 import {Drawer} from "@mui/material";
-import Write from "../components/keyboard/Write";
+//import {Drawer} from "@mui/material";
+//import WriteWithRevolver from "../components/keyboard/WriteWithRevolver";
 
 export const Clipboard = createContext({})
 
@@ -24,20 +25,20 @@ function PasteBinDrawer() {
 }
 
 function KeyManagerDrawer() {
-    return null /*(<Drawer
+    return (<Drawer
         anchor="bottom"
-        open={isKeyboardShown}
-        onClose={toggleDrawer(false)}
+        //open={isKeyboardShown}
+        //onClose={toggleDrawer(false)}
     >
-        <Write/>
-    </Drawer>);*/
+        test
+    </Drawer>)
 }
 
 export default function ClipboardProvider({children}: Props) {
-    const {selectedChamber, deleteChamber, inChamberFindAndReplace, addChamber, cycle, /*setRevolver*/} = useRevolver(exampleRevolver);
+    const {selectedChamber, deleteChamber, addChamber, /*setRevolver*/} = useRevolver(exampleRevolver);
     const {shiftLeft, shiftRight, pasteInto, pasteFrom, /*clear*/} = useBin()
     return (
-        <Clipboard.Provider value={{selectedChamber, deleteChamber, inChamberFindAndReplace, addChamber, cycle,
+        <Clipboard.Provider value={{selectedChamber, deleteChamber, addChamber,
         shiftLeft, shiftRight, pasteInto, pasteFrom}}>
             <PasteBinDrawer/>
             <KeyManagerDrawer/>

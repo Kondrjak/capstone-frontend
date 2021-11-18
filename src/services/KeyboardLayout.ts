@@ -1,7 +1,7 @@
 import {KeyRow} from "../types/tsTypes";
 
 export class KeyboardLayout {
-    private rows: String[][]
+    private rows: string[][]
 
     constructor(layout: string) {
         const keyRows: KeyRow[] = layout.split("\n")
@@ -10,8 +10,8 @@ export class KeyboardLayout {
     }
 
     checkForRepetitions() {
-        const keys: String[] = this.rows.flatMap(key => key)
-        const repetitions: String[] = keys.filter(key => keys.includes(key))
+        const keys: string[] = this.rows.flatMap(key => key)
+        const repetitions: string[] = keys.filter(key => keys.includes(key))
         if (repetitions.length > 0) {
             throw new Error("No repetitive keys allowed. Check " + repetitions.join() + ".")
         }

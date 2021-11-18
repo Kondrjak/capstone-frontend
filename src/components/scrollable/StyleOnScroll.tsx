@@ -11,7 +11,6 @@ export default function StyleOnScroll(props:any){
     });
 
     return React.cloneElement(children, {
-        elevation: trigger ? 4 : 0,
         style: {
             backgroundColor: trigger
                 ? alpha(red.A400, 0.5)

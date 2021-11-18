@@ -5,6 +5,7 @@ import CodepointButton from "./CodepointButton";
 import InfoIcon from "@mui/icons-material/Info";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import InfoBackdrop from "./InfoBackdrop";
+import LayoutToPasteBackdrop from "../keyboard/LayoutToPasteBackdrop";
 
 
 function handlePasteBin(symbol:string){
@@ -21,7 +22,7 @@ function showKeyboard(symbol:string){
 
 const actions = [
     {icon: <InfoIcon/>, name: 'Info', action: showInfoCard, actionComponent: InfoBackdrop},
-    {icon: <KeyboardIcon/>, name: 'Add', action: showKeyboard, actionComponent: null},
+    {icon: <KeyboardIcon/>, name: 'Add', action: showKeyboard, actionComponent: LayoutToPasteBackdrop},
 ];
 
 
@@ -29,7 +30,7 @@ type Props = {
     group: { "code-points": string[]; name: string; "verbose-name": string },
     handleNewKey: any
 }
-export default function CodepointCard({group}: Props) {
+export default function GroupCard({group}: Props) {
     const scrollableRef = React.createRef();
     const fontSize = "30px";
     return (

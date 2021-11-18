@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import {Container, Drawer} from "@mui/material";
-import CodepointCard from "./CodepointCard";
-import AssignKey from "../keyboard/AssignKey";
-import {defaultLayout} from "../../defaults/Layouts";
+import GroupCard from "./GroupCard";
+import WriteWithRevolver from "../text/WriteWithRevolver";
+import {exampleRevolver} from "../../params/virtualKeyboard";
+import InfiniteListWithHorizontalScroll from "../scrollable/useInfiniteScroll/InfiniteListHorizontalScroll";
 
 type CodepointGroup = { "verbose-name": string; name: string; "code-points": string[]; }
 type Props = { codepointGroups: CodepointGroup[] }
 export default function CodepointGallery({codepointGroups}: Props) {
 
-    const [keyLayout, setKeyLayout] = useState(defaultLayout)
     const [isKeyboardShown, showKeyboard] = useState(false)
     const [newKey, setNewKey] = useState("")
+    console.log(newKey)
 
     const toggleDrawer = (open: boolean) => (event: any) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -21,26 +22,24 @@ export default function CodepointGallery({codepointGroups}: Props) {
 
     return (
         <>
-            <Drawer
+            <Drawer key={0}
                 anchor="bottom"
                 open={isKeyboardShown}
                 onClose={toggleDrawer(false)}
             >
-                <AssignKey
-                    newKey={newKey}
-                    keyLayout={keyLayout}
-                    setKeyLayout={setKeyLayout}
-                    showKeyboard={showKeyboard}/>
+                <WriteWithRevolver layoutRevolver={exampleRevolver} baseClass={"default"}/>
             </Drawer>
-            <Container style={{padding: "3px"}}>
+            <Container style={{padding: "3px"}} key={2}>
                 {codepointGroups.map((
                     group: CodepointGroup,
-                    index: number) => <CodepointCard
+                    index: number) => <GroupCard
                     key={index}
-                    handleKeyboard={showKeyboard}
                     handleNewKey={setNewKey}
                     group={group}/>)}
+
+                <InfiniteListWithHorizontalScroll key={-1}/>
             </Container>
+
         </>
     );
 }

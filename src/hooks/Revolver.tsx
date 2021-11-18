@@ -3,41 +3,31 @@ import {useState} from "react";
 
 export default function useRevolver(initialRevolver: KeyRevolver) {
     const [chamberInFocus, setChamberInFocus] = useState(0);
-    const [revolver, setRevolver] = useState(initialRevolver);
+    const [revolver, setRevolver] = useState(initialRevolver)
 
     function deleteChamber(chamberToDelete: number) {
-        if (revolver[chamberToDelete])
-            revolver.splice(chamberToDelete, 1)
-        if (chamberInFocus >= chamberToDelete) {
-            setChamberInFocus(chamberInFocus - 1)
-        } else throw new Error("No chamber " + chamberToDelete + " exists and therefore can not be deleted.")
+        if (revolver[chamberToDelete]) revolver.splice(chamberToDelete, 1)
+        if (chamberInFocus >= chamberToDelete) setChamberInFocus(chamberInFocus - 1)
+        else throw new Error("No chamber " + chamberToDelete + " exists and therefore can not be deleted.")
     }
 
-    function inChamberFindAndReplace(chamber: number, toFind: string, toReplace: string) {
-
-    }
-
-    function addChamber(chamber:KeyLayout) {
+    function addChamber(chamber: KeyLayout) {
         setRevolver([...revolver, chamber])
     }
 
-    function cycle(direction: string) {
-        switch (direction) {
-            case "<":
-                if (chamberInFocus === 0) setChamberInFocus(revolver.length - 1)
-                else setChamberInFocus(chamberInFocus - 1)
-                break;
-            case ">":
-                if (chamberInFocus === revolver.length - 1) setChamberInFocus(0)
-                else setChamberInFocus(chamberInFocus + 1)
-                break;
-            default: throw new Error("no action "+direction+ " available. try '>' or '<'")
-        }
+    function cycleLeft() {
+        if (chamberInFocus === 0) setChamberInFocus(revolver.length - 1)
+        else setChamberInFocus(chamberInFocus - 1)
+    }
+
+    function cycleRight() {
+        if (chamberInFocus === revolver.length - 1) setChamberInFocus(0)
+        else setChamberInFocus(chamberInFocus + 1)
     }
 
     function selectedChamber() {
-        return revolver[chamberInFocus]
+        return {default: revolver[chamberInFocus]}
     }
 
-    return {selectedChamber, deleteChamber, inChamberFindAndReplace, addChamber, cycle}
+    return {revolver, selectedChamber, deleteChamber, addChamber, cycleLeft, cycleRight}
 }
