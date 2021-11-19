@@ -8,6 +8,12 @@ export function useFocusAndSelection() {
         htmlElRef.current.focus();
     }
 
+    function setFocusWithoutOsKeyboardShowing(){
+        // @ts-ignore
+        htmlElRef.current.readOnly = false
+        setFocus()
+    }
+
     function setSelection(start: number, end: number) {
         // @ts-ignore
         htmlElRef.current.selectionStart = start
@@ -15,11 +21,11 @@ export function useFocusAndSelection() {
         htmlElRef.current.selectionEnd = end
     }
 
-    return {htmlElRef, setFocus, setSelection}
+    return {htmlElRef, setFocusWithoutOsKeyboardShowing, setSelection}
 }
 
 export default function useKeyboardTextareaConnection() {
-    const {htmlElRef: inputRef, setFocus, setSelection} = useFocusAndSelection()
+    const {htmlElRef: inputRef, setFocusWithoutOsKeyboardShowing, setSelection} = useFocusAndSelection()
     const [text, setText] = useState("")
     const [caret, setCaret] = useState({start: 0, end: 0, content: ""})
 
@@ -36,7 +42,6 @@ export default function useKeyboardTextareaConnection() {
     }
 
     //function isHighSurrogate(code: number) {return 0xD800 <= code && code <= 0xDBFF}
-
     function isLowSurrogate(code: number) {
         return 0xDC00 <= code && code <= 0xDFFF
     }
@@ -69,7 +74,7 @@ export default function useKeyboardTextareaConnection() {
         const newCaretPos = caret.start + symbol.length
         setCaret({start: newCaretPos, end: newCaretPos, content: ""})
         setSelection(newCaretPos, newCaretPos)
-        setFocus()
+        setFocusWithoutOsKeyboardShowing()
     }
 
     return {inputRef, text, saveChange, saveCaretSelection, handleBackspace, typeSymbol}

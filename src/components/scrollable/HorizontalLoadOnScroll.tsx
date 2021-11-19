@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {usePushItems} from "../../hooks/loadOnScrollPushItems";
+import {usePushItems} from "../../hooks/onScrollPushItems";
 import useInfiniteScroll from "react-infinite-scroll-hook";
 import {Paper, Skeleton} from "@mui/material";
 import HorizontalScroll from "./HorizontalScroll";

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const LIST_LOAD_CHUNK_SIZE = 20;
-const RESPONSE_TIME_IN_MS = 300;
+const RESPONSE_TIME_IN_MS = 50;
 
 export interface Item {
     key: number;
