@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const ARRAY_SIZE = 20;
-const RESPONSE_TIME_IN_MS = 1000;
+const LIST_LOAD_CHUNK_SIZE = 20;
+const RESPONSE_TIME_IN_MS = 300;
 
 export interface Item {
     key: number;
@@ -13,25 +13,26 @@ interface Response {
     data: Item[];
 }
 
-function loadItems(startCursor = 0): Promise<Response> {
+function pushItemsFrom(array: any[], startCursor = 0): Promise<Response> {
     return new Promise((resolve) => {
-        let newArray: Item[] = [];
+        let loadedSlice: Item[] = [];
 
         setTimeout(() => {
-            for (let i = startCursor; i < startCursor + ARRAY_SIZE; i++) {
+            for (let i = startCursor; i < Math.min(array.length, startCursor + LIST_LOAD_CHUNK_SIZE); i++) {
                 const newItem = {
                     key: i,
-                    value: `This is item ${i}`,
+                    value: array[i],
                 };
-                newArray = [...newArray, newItem];
+                loadedSlice = [...loadedSlice, newItem];
             }
 
-            resolve({ hasNextPage: true, data: newArray });
+            resolve({hasNextPage: loadedSlice.length < array.length, data: loadedSlice});
         }, RESPONSE_TIME_IN_MS);
     });
+
 }
 
-export function useLoadItems() {
+export function usePushItems(array: any[]) {
     const [loading, setLoading] = React.useState(false);
     const [items, setItems] = React.useState<Item[]>([]);
     const [hasNextPage, setHasNextPage] = React.useState<boolean>(true);
@@ -40,9 +41,8 @@ export function useLoadItems() {
     async function loadMore() {
         setLoading(true);
         try {
-            const { data, hasNextPage: newHasNextPage } = await loadItems(
-                items.length,
-            );
+            const startCursor = items.length
+            const {data, hasNextPage: newHasNextPage} = await pushItemsFrom(array, startCursor);
             setItems((current) => [...current, ...data]);
             setHasNextPage(newHasNextPage);
         } catch (err) {
@@ -52,5 +52,5 @@ export function useLoadItems() {
         }
     }
 
-    return { loading, items, hasNextPage, error, loadMore };
+    return {loading, items, hasNextPage, error, loadMore};
 }

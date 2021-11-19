@@ -1,5 +1,5 @@
 import React from "react";
-import StyleOnScroll from "../scrollable/StyleOnScroll";
+import StyleOnScroll from "./StyleOnScroll";
 
 export default function StyleOnScrollTst() {
     const numbers: number[] = [];
