@@ -79,9 +79,9 @@ const subAndSup = {
     ,
     tags: ["123", "numerals", "arabic", "roman", "greeks", "mobile"],
     fonts: ["Google Fonts Roboto"],
-    author: "RomsenKabomsen"
+    author: "RomsenKabomsen‍‍"
 }
-//const roman = "ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ\n"
+//const roman = "👩‍👩‍👧‍👧 ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ\n"
 export const defaultLayouts = [
     quertz,
     QUERTZ,
