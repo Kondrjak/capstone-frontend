@@ -1,7 +1,7 @@
 import React from "react";
 import StyleOnScroll from "../scrollable/StyleOnScroll";
 
-export default function StyleOnScrollTest() {
+export default function StyleOnScrollTst() {
     const numbers: number[] = [];
     for (let i: number = 0; i < 100; i++) {
         numbers.push(i)

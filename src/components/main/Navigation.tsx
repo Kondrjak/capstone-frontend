@@ -29,10 +29,10 @@ export default function Navigation(props: Props) {
                           text="text"
                 />
             </NavLink>
-            <NavLink to="/keyboard-mappings">
+            <NavLink to="/keyboard-layouts">
                 <NavItem symbol="⌨"
                           label="keyboard"
-                          text="mappings"
+                          text="layouts"
                 />
             </NavLink>
             <NavLink to="/codepoint-groups">

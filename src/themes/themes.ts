@@ -38,4 +38,9 @@ const palette = {
     }
 export const themes = createTheme({
     palette: palette,
+    typography: {
+        button: {
+            textTransform: 'none'
+        }
+    }
 });
