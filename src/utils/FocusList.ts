@@ -66,7 +66,7 @@ export class FocusList<T> {
         const index1 = this.array.indexOf(item1)
         const index2 = this.array.indexOf(item2)
         let err = ""
-        if (index1 === undefined) err += "The item " + item1 + " is not contained in this list. "
+        if (index1 < 0) err += "The item " + item1 + " is not contained in this list. "
         if (index2 === undefined) err += "The item " + item2 + " is not contained in this list. "
         if (err.length > 0) throw new Error(err + "Permutation can not be applied.")
         else this.permute(index1, index2)
