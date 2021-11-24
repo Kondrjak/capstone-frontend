@@ -107,7 +107,7 @@ export class FocusList<T> {
     }
 
     substitute(oldItem: T, newItem: T) {
-        const maybeIndex: number|undefined = this.array.indexOf(oldItem)
+        const maybeIndex: number = this.array.indexOf(oldItem)
         this.delete(oldItem)
         this.insertAt(maybeIndex, newItem)
     }
