@@ -3,19 +3,19 @@ import * as React from 'react';
 const LIST_LOAD_CHUNK_SIZE = 20;
 const RESPONSE_TIME_IN_MS = 50;
 
-export interface Item {
+export interface ScrollListItem {
     key: number;
     value: string;
 }
 
 interface Response {
     hasNextPage: boolean;
-    data: Item[];
+    data: ScrollListItem[];
 }
 
 function pushItemsFrom(array: any[], startCursor = 0): Promise<Response> {
     return new Promise((resolve) => {
-        let loadedSlice: Item[] = [];
+        let loadedSlice: ScrollListItem[] = [];
 
         setTimeout(() => {
             for (let i = startCursor; i < Math.min(array.length, startCursor + LIST_LOAD_CHUNK_SIZE); i++) {
@@ -25,7 +25,6 @@ function pushItemsFrom(array: any[], startCursor = 0): Promise<Response> {
                 };
                 loadedSlice = [...loadedSlice, newItem];
             }
-
             resolve({hasNextPage: loadedSlice.length < array.length, data: loadedSlice});
         }, RESPONSE_TIME_IN_MS);
     });
@@ -34,7 +33,7 @@ function pushItemsFrom(array: any[], startCursor = 0): Promise<Response> {
 
 export function usePushItems(array: any[]) {
     const [loading, setLoading] = React.useState(false);
-    const [items, setItems] = React.useState<Item[]>([]);
+    const [items, setItems] = React.useState<ScrollListItem[]>([]);
     const [hasNextPage, setHasNextPage] = React.useState<boolean>(true);
     const [error, setError] = React.useState<Error>();
 

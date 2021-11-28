@@ -3,7 +3,7 @@ import React from "react";
 import {usePushItems} from "../../hooks/onScrollPushItems";
 import useInfiniteScroll from "react-infinite-scroll-hook";
 
-export default function VerticalLoadOnScroll({children}: { children: any }) {
+export default function LoadOnScrollVertical({children}: { children: any }) {
     const {loading, items, error, loadMore} = usePushItems(React.Children.toArray(children))
     const hasNext = items.length < React.Children.toArray(children).length
 

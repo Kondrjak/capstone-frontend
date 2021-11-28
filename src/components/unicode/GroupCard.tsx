@@ -4,8 +4,8 @@ import CodepointButton from "./CodepointButton";
 import InfoIcon from "@mui/icons-material/Info";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import InfoBackdrop from "./InfoBackdrop";
-import LayoutToPasteBackdrop from "../keyboard/LayoutToPasteBackdrop";
-import HorizontalLoadOnScroll from "../scrollable/HorizontalLoadOnScroll";
+import LayoutToPasteBackdrop from "../keyLayout/LayoutToPasteBackdrop";
+import LoadOnScrollHorizontal from "../scrollable/LoadOnScrollHorizontal";
 
 
 function handlePasteBin(symbol:string){
@@ -33,7 +33,7 @@ type Props = {
 export default function GroupCard({group}: Props) {
     const fontSize = "30px";
     return (
-            <HorizontalLoadOnScroll>
+            <LoadOnScrollHorizontal>
                 <Button key="name" variant="contained">
                     <Typography fontSize={fontSize}>
                         {group.name}
@@ -51,6 +51,6 @@ export default function GroupCard({group}: Props) {
                         {group["verbose-name"]}
                     </Typography>
                 </Button>
-            </HorizontalLoadOnScroll>
+            </LoadOnScrollHorizontal>
     );
 }

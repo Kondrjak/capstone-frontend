@@ -11,9 +11,12 @@ export class KeyboardLayout {
 
     checkForRepetitions() {
         const keys: string[] = this.rows.flatMap(key => key)
-        const repetitions: string[] = keys.filter(key => keys.includes(key))
-        if (repetitions.length > 0) {
-            throw new Error("No repetitive keys allowed. Check " + repetitions.join() + ".")
+        for(let i=0; i<keys.length; i++){
+            const occurrences = keys.filter(key => (key===keys[i]))
+            if(occurrences.length>1){
+
+                throw new Error("No repetitive keys allowed. Check " + keys[i] + ".")
+            }
         }
     }
 
@@ -23,7 +26,7 @@ export class KeyboardLayout {
     }
 
     substitute(key: string, newKey: string) {
-        if(this.includes(newKey)) throw new Error("New key "+newKey+" is already present in this layout.")
+        if(this.includes(newKey)) throw new Error("New key "+newKey+" can not replace "+key+" since already present in this layout"+this.getLayout()+".")
         this.rows.forEach(row => {
             if (row.includes(key)) {
                 const i = row.indexOf(key)

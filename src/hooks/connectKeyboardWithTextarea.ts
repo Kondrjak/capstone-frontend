@@ -1,5 +1,8 @@
 import {useRef, useState} from "react";
 
+/**
+ * functions to get
+ */
 export function useFocusAndSelection() {
     const htmlElRef = useRef(null)
 
@@ -8,10 +11,10 @@ export function useFocusAndSelection() {
         htmlElRef.current.focus();
     }
 
-    function setFocusWithoutOsKeyboardShowing(){
-        // @ts-ignore
-        htmlElRef.current.readOnly = false
+    function setFocusWithoutOsKeyboardShowing() {
         setFocus()
+        // @ts-ignore
+        //htmlElRef.current.blur();
     }
 
     function setSelection(start: number, end: number) {
@@ -28,6 +31,8 @@ export default function useKeyboardTextareaConnection() {
     const {htmlElRef: inputRef, setFocusWithoutOsKeyboardShowing, setSelection} = useFocusAndSelection()
     const [text, setText] = useState("")
     const [caret, setCaret] = useState({start: 0, end: 0, content: ""})
+    const caretStartSymbol = "⃗"//"⃒"
+    const caretEndSymbol = "⃒"   //"⃖"
 
     function saveChange(event: any) {
         setText(event.target.value);
@@ -52,7 +57,7 @@ export default function useKeyboardTextareaConnection() {
             let behindCursor = caret.start - 1
             let charCodeBehindCursor = text.charCodeAt(behindCursor)
             let symbolChars = 1
-            while (isLowSurrogate(charCodeBehindCursor)){
+            while (isLowSurrogate(charCodeBehindCursor)) {
                 symbolChars++
                 behindCursor--
                 charCodeBehindCursor = text.charCodeAt(behindCursor)
@@ -76,6 +81,20 @@ export default function useKeyboardTextareaConnection() {
         setSelection(newCaretPos, newCaretPos)
         setFocusWithoutOsKeyboardShowing()
     }
+
+    /**
+     * Attempt to make the selection visible after focus
+     */
+    function textWithCursorSymbol() {
+        const maybeStartCursor = (caret.start===text.length) ? "" : caretStartSymbol
+        const maybeEndCursor = (caret.start===caret.end) ? "" : caretEndSymbol
+        return text.slice(0, caret.start)
+            + caretStartSymbol
+            + text.slice(caret.start, caret.end)
+            + maybeEndCursor
+            + text.slice(caret.end, text.length)
+    }
+
 
     return {inputRef, text, saveChange, saveCaretSelection, handleBackspace, typeSymbol}
 }
