@@ -1,2 +1,3 @@
-export const urlBackendLogin = 'http://localhost:8080/auth/login'
-export const urlBackendLoginGithub = 'http://localhost:8080/auth/github/login'
+const urlBackend = "https://dev-capstone-backend.herokuapp.com/"
+export const urlBackendLogin = urlBackend+'auth/login'
+export const urlBackendLoginGithub = urlBackend+'auth/login/github'
