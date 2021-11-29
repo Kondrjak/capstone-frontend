@@ -12,21 +12,26 @@ export function useAppendQuery(startLink: string, resourceName: string) {
     const [items, setItems] = useState<ScrollListItem[]>([]);
     const [nextLink, setNextLink] = useState(startLink)
     const [error, setError] = useState<Error>();
-    const [hasNext, setHasNext] = useState(false)
+    const [hasNext, setHasNext] = useState(true)
     // @ts-ignore
     const {token} = useAuth();
+
+    async function requestBackend(nextLink: string) {
+        console.log("start loading")
+        const response = await axios.get(nextLink, {headers: {Authorization: `Bearer ${token}`}});
+        const newContent = response.data.content
+        console.log(newContent)
+        const links = response.data.links
+        return {links, newContent}
+    }
 
     async function loadMoreFromLink() {
         console.log("load more from link was triggered")
         setLoading(true);
         try {
-            console.log("start loading")
-            const response = await axios.get(nextLink, {headers: {Authorization: `Bearer ${token}`}});
-            console.log(response)
-            const newContent = response.data.content[resourceName]
-            const links = response.data.links
+            const {links, newContent} = await requestBackend(nextLink)
 
-            setItems((current) => [...current, ...newContent]);
+            if(newContent) setItems((current) => [...current, ...newContent]);
 
             let hasNextBuffer = false;
             for (let i = 0; i < links.length; i++) {

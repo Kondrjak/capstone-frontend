@@ -6,14 +6,14 @@ import {themes} from "../../themes/themes";
 import WriteWithRevolver from "../text/WriteWithRevolver";
 import LayoutGallery from "../keyLayout/LayoutGallery";
 import {Route, Switch} from "react-router-dom";
-import CodepointGallery from "../unicode/CodepointGallery";
+import CodepointGroupGallery from "../unicode/CodepointGroupGallery";
 import Navigation from "./Navigation";
 import {defaultAlphanumerics} from "../../defaultGalleryContent/AlphaNumerics";
-import {defaultRanges} from "../../defaultGalleryContent/UnicodeRanges";
 import ClipboardProvider from "../../contexts/clipboard";
 import {exampleRevolver} from "../../params/virtualKeyboard";
 import Login from "../login/Login";
 import {AuthProvider} from "../../contexts/authentication";
+import UnicodeRangeGallery from "../unicode/UnicodeRangeGallery";
 
 export default function Main() {
     return (
@@ -35,10 +35,10 @@ export default function Main() {
                             <LayoutGallery/>
                         </Route>
                         <Route exact path="/codepoint-groups">
-                            <CodepointGallery codepointGroups={defaultAlphanumerics}/>
+                            <CodepointGroupGallery/>
                         </Route>
                         <Route exact path="/unicode-ranges">
-                            <CodepointGallery codepointGroups={defaultRanges}/>
+                            <UnicodeRangeGallery/>
                         </Route>
                     </ClipboardProvider>
                 </AuthProvider>
