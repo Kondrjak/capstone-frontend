@@ -5,8 +5,8 @@
 * capstone project of my participation at the java-backend-bootcamp @neuefische.de
 
 ## Heroku
-[frontend](https://dev-capstone-backend.herokuapp.com/)
-[backend](https://dev-capstone-backend.herokuapp.com/)
+* [https://dev-capstone-frontend.herokuapp.com/](https://dev-capstone-frontend.herokuapp.com/)
+* [https://dev-capstone-backend.herokuapp.com/](https://dev-capstone-backend.herokuapp.com/)
 
 ## Badges
 
