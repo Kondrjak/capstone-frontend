@@ -98,7 +98,7 @@ export const defaultAlphanumerics = [
         "verbose-name": "english-lowercase-script",
         "name": "𝒶-𝓏",
         "code-points": ['𝒶', '𝒷', '𝒸', '𝒹', 'ℯ', '𝒻', 'ℊ', '𝒽', '𝒾', '𝒿', '𝓀', '𝓁', '𝓂', '𝓃', 'ℴ', '𝓅', '𝓆', '𝓇', '𝓈', '𝓉', '𝓊', '𝓋', '𝓌', '𝓍', '𝓎', '𝓏']
-    },/*
+    },
     {
         "verbose-name": "greek-extras-serif-italic+bold",
         "name": "𝝏-𝝕",

@@ -1,6 +1,6 @@
 import {useRef, useState} from "react";
 
-export function useFocusAndSelection(){
+export function useFocusAndSelection() {
     const htmlElRef = useRef(null)
 
     function setFocus() {
@@ -18,7 +18,7 @@ export function useFocusAndSelection(){
     return {htmlElRef, setFocus, setSelection}
 }
 
-export default function useKeyboardTextareaConnection(){
+export default function useKeyboardTextareaConnection() {
     const {htmlElRef: inputRef, setFocus, setSelection} = useFocusAndSelection()
     const [text, setText] = useState("")
     const [caret, setCaret] = useState({start: 0, end: 0, content: ""})
@@ -35,12 +35,28 @@ export default function useKeyboardTextareaConnection(){
         })
     }
 
+    //function isHighSurrogate(code: number) {return 0xD800 <= code && code <= 0xDBFF}
+
+    function isLowSurrogate(code: number) {
+        return 0xDC00 <= code && code <= 0xDFFF
+    }
+
+
     function handleBackspace() {
         if (caret.content === "") {
-            const newCaretPos = caret.start - 1
+            let behindCursor = caret.start - 1
+            let charCodeBehindCursor = text.charCodeAt(behindCursor)
+            let symbolChars = 1
+            while (isLowSurrogate(charCodeBehindCursor)){
+                symbolChars++
+                behindCursor--
+                charCodeBehindCursor = text.charCodeAt(behindCursor)
+            }
+            const newCaretPos = caret.start - symbolChars
             setText(text.slice(0, newCaretPos) + text.slice(caret.start, text.length))
             setCaret({start: newCaretPos, end: newCaretPos, content: ""})
             setSelection(newCaretPos, newCaretPos)
+
         } else {
             setText(text.slice(0, caret.start) + text.slice(caret.end, text.length))
             setCaret({start: caret.start, end: caret.start, content: ""})

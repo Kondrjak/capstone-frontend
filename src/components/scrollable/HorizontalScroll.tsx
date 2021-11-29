@@ -1,15 +1,13 @@
-import React, {Children} from "react";
+import React from "react";
 
 type Props = {
     children: any
-    scrollRef: any
 }
-export default function HorizontalScroll({children, scrollRef}: Props) {
+export default function HorizontalScroll({children}: Props) {
     const margin = "2px";
     const height = "57px";
     return (
         <ul
-            ref={scrollRef}
             style={{
                 boxSizing: "border-box",
                 margin: margin,
@@ -22,14 +20,7 @@ export default function HorizontalScroll({children, scrollRef}: Props) {
                 height: height
             }}
         >
-            {Children.toArray(children).map(
-                (child,
-                 index: number) =>
-                    <li key={index}
-                    style={{margin:0}}>
-                        {child}
-                    </li>
-            )}
+            {children}
         </ul>
     );
 }

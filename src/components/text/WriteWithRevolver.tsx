@@ -3,7 +3,7 @@ import Keyboard from "react-simple-keyboard"
 import "react-simple-keyboard/build/css/index.css";
 import {KeyRevolver} from "../../types/tsTypes";
 import useRevolver from "../../hooks/Revolver";
-import useKeyboardTextareaConnection from "../../hooks/KeyboardTextareaConnection";
+import useKeyboardTextareaConnection from "../../hooks/connectKeyboardWithTextarea";
 
 type PropsWriteWith = {
     layoutRevolver: KeyRevolver,

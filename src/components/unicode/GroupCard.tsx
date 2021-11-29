@@ -1,11 +1,11 @@
-import {Button, Paper, Typography} from "@mui/material";
-import HorizontalScroll from "../scrollable/HorizontalScroll";
+import {Button, Typography} from "@mui/material";
 import React from "react";
 import CodepointButton from "./CodepointButton";
 import InfoIcon from "@mui/icons-material/Info";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import InfoBackdrop from "./InfoBackdrop";
 import LayoutToPasteBackdrop from "../keyboard/LayoutToPasteBackdrop";
+import HorizontalLoadOnScroll from "../scrollable/HorizontalLoadOnScroll";
 
 
 function handlePasteBin(symbol:string){
@@ -31,11 +31,9 @@ type Props = {
     handleNewKey: any
 }
 export default function GroupCard({group}: Props) {
-    const scrollableRef = React.createRef();
     const fontSize = "30px";
     return (
-        <Paper>
-            <HorizontalScroll scrollRef={scrollableRef}>
+            <HorizontalLoadOnScroll>
                 <Button key="name" variant="contained">
                     <Typography fontSize={fontSize}>
                         {group.name}
@@ -53,7 +51,6 @@ export default function GroupCard({group}: Props) {
                         {group["verbose-name"]}
                     </Typography>
                 </Button>
-            </HorizontalScroll>
-        </Paper>
+            </HorizontalLoadOnScroll>
     );
 }
