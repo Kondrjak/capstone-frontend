@@ -37,6 +37,7 @@ export function usePushItems(array: any[]) {
     const [hasNextPage, setHasNextPage] = React.useState<boolean>(true);
     const [error, setError] = React.useState<Error>();
 
+
     async function loadMore() {
         setLoading(true);
         try {
