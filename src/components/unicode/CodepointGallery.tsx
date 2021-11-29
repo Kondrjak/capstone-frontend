@@ -3,7 +3,7 @@ import {Drawer} from "@mui/material";
 import GroupCard from "./GroupCard";
 import WriteWithRevolver from "../text/WriteWithRevolver";
 import {exampleRevolver} from "../../params/virtualKeyboard";
-import VerticalLoadOnScroll from "../scrollable/VerticalLoadOnScroll";
+import LoadOnScrollVertical from "../scrollable/LoadOnScrollVertical";
 
 type CodepointGroup = { "verbose-name": string; name: string; "code-points": string[]; }
 type Props = { codepointGroups: CodepointGroup[] }
@@ -29,14 +29,14 @@ export default function CodepointGallery({codepointGroups}: Props) {
             >
                 <WriteWithRevolver layoutRevolver={exampleRevolver} baseClass={"default"}/>
             </Drawer>
-            <VerticalLoadOnScroll>
+            <LoadOnScrollVertical>
                     {codepointGroups.map((
                         group: CodepointGroup,
                         index: number) => <GroupCard
                         key={index}
                         handleNewKey={setNewKey}
                         group={group}/>)}
-            </VerticalLoadOnScroll>
+            </LoadOnScrollVertical>
         </>
     );
 }

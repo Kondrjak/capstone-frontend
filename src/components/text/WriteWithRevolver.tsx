@@ -19,8 +19,19 @@ type PropsWriteWith = {
  * @returns  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>,HTMLDivElement>
  *           - a div Element with textarea input and keyboard below with given layout.
  */
-export default function WriteWithRevolver({layoutRevolver, baseClass = "default", inputHeight = "500px"}: PropsWriteWith) {
-    const {inputRef, typeSymbol, handleBackspace, saveCaretSelection, text, saveChange} = useKeyboardTextareaConnection()
+export default function WriteWithRevolver({
+                                              layoutRevolver,
+                                              baseClass = "default",
+                                              inputHeight = "500px"
+                                          }: PropsWriteWith) {
+    const {
+        inputRef,
+        typeSymbol,
+        handleBackspace,
+        saveCaretSelection,
+        text,
+        saveChange
+    } = useKeyboardTextareaConnection()
     const {selectedChamber, cycleLeft, cycleRight} = useRevolver(layoutRevolver)
 
     function onKeyPress(button: string, event: any) {
@@ -38,10 +49,10 @@ export default function WriteWithRevolver({layoutRevolver, baseClass = "default"
         <div>
             <textarea
                 style={{
+                    resize: "none",
                     minWidth: '100%',
                     minHeight: inputHeight,
-                    fontSize: "2em",
-                    //fontWeight: 'bold',
+                    fontSize: "3em",
                     fontFamily: "Verdana, Arial, Helvetica, sans-serif",
                     border: "2px solid grey"
                 }}
@@ -52,6 +63,14 @@ export default function WriteWithRevolver({layoutRevolver, baseClass = "default"
                 onChange={saveChange}
             />
             <Keyboard
+                display={{
+                    '{bksp}': '⌫',
+                    '{enter}': '⎆',
+                    '{tab}': '↹',
+                    '{lock}': '⇦',
+                    '{shift}': '⇨',
+                    '{space}': ' '
+                }}
                 onKeyPress={onKeyPress}
                 layout={selectedChamber()}
                 //theme={"my-theme"}

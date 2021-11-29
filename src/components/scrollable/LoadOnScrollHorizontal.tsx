@@ -2,10 +2,10 @@ import * as React from 'react';
 import {usePushItems} from "../../hooks/onScrollPushItems";
 import useInfiniteScroll from "react-infinite-scroll-hook";
 import {Paper, Skeleton} from "@mui/material";
-import HorizontalScroll from "./HorizontalScroll";
+import ScrollHorizontal from "./ScrollHorizontal";
 
 type Props = { children: any }
-export default function HorizontalLoadOnScroll({children}: Props) {
+export default function LoadOnScrollHorizontal({children}: Props) {
     const {loading, items, error, loadMore} = usePushItems(React.Children.toArray(children))
     const hasNext = items.length < React.Children.toArray(children).length
 
@@ -19,7 +19,7 @@ export default function HorizontalLoadOnScroll({children}: Props) {
 
     return (
         <Paper ref={rootRef}>
-            <HorizontalScroll>
+            <ScrollHorizontal>
                 {items.map((item: any) => (
                     <li key={item.key}>
                         {item.value}
@@ -32,7 +32,7 @@ export default function HorizontalLoadOnScroll({children}: Props) {
                         <Skeleton variant="circular" width={53} height={53} color={"#000000"}/>
                     </li>
                 )}
-            </HorizontalScroll>
+            </ScrollHorizontal>
         </Paper>
     );
 }

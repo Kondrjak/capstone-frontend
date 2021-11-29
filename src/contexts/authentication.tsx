@@ -1,39 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import {createContext, useState} from "react";
-import {useHistory} from "react-router-dom";
-import axios from "axios";
-import {urlBackendLogin, urlBackendLoginGithub} from "../params/urls";
 
-export const Authentication = createContext({})
+const Authentication = createContext({})
 
 type Props = { children: any }
-export default function AuthProvider({children}: Props) {
+
+export function AuthProvider({children}: Props) {
     const [token, setToken] = useState()
-    const history = useHistory();
-
-    function postCredentials(username: string, password: string) {
-        const user = {
-            username: username,
-            password: password
-        }
-        return axios
-            .post(urlBackendLogin, user)
-            .then(response => response.data)
-            .then(result => setToken(result))
-            .then(() => history.push('/'))
-            .catch(error => console.error(error.message()))
-    }
-
-    function postCredentialsGitHub(githubCode: string) {
-        return axios
-            .post(urlBackendLoginGithub, githubCode)
-            .then(response => response.data)
-            .catch(console.error)
-    }
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [loginChild, ...pageContentChildren] = [...React.Children.toArray(children)]
 
     return (
-        <Authentication.Provider value={{token, postCredentials, postCredentialsGitHub}}>
-            {children}
+        <Authentication.Provider value={{token, setToken, setLoggedIn}}>
+            {!loggedIn ? loginChild : pageContentChildren.map(x => x)}
         </Authentication.Provider>
     )
 }
+
+export const useAuth = () => useContext(Authentication)

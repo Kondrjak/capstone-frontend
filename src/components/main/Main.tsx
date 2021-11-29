@@ -4,27 +4,29 @@ import CssBaseline from "@mui/material/CssBaseline";
 import {ThemeProvider} from "@mui/material";
 import {themes} from "../../themes/themes";
 import WriteWithRevolver from "../text/WriteWithRevolver";
-import LayoutGallery from "../keyboard/LayoutGallery";
-import {Route, Switch, useHistory} from "react-router-dom";
+import LayoutGallery from "../keyLayout/LayoutGallery";
+import {Route, Switch} from "react-router-dom";
 import CodepointGallery from "../unicode/CodepointGallery";
 import Navigation from "./Navigation";
 import {defaultAlphanumerics} from "../../defaultGalleryContent/AlphaNumerics";
 import {defaultRanges} from "../../defaultGalleryContent/UnicodeRanges";
-import AuthProvider from "../../contexts/authentication";
 import ClipboardProvider from "../../contexts/clipboard";
 import {exampleRevolver} from "../../params/virtualKeyboard";
+import Login from "../login/Login";
+import {AuthProvider} from "../../contexts/authentication";
 
 export default function Main() {
-    const history = useHistory();
     return (
         <ThemeProvider theme={themes}>
-            <AuthProvider>
-                <CssBaseline/>
-                <Navigation/>
-                <Switch key={"Switch"}>
+            <Switch key={"Switch"}>
+                <AuthProvider>
+                    {/* this route must be the first child of auth provider */}
                     <Route exact path="/">
-                        {"...fetching history..." + history.push("/write-text")}
+                        <CssBaseline/>
+                        <Login/>
                     </Route>
+                    <CssBaseline/>
+                    <Navigation/>
                     <ClipboardProvider>
                         <Route exact path="/write-text">
                             <WriteWithRevolver layoutRevolver={exampleRevolver} baseClass={"default"}/>
@@ -39,8 +41,8 @@ export default function Main() {
                             <CodepointGallery codepointGroups={defaultRanges}/>
                         </Route>
                     </ClipboardProvider>
-                </Switch>
-            </AuthProvider>
+                </AuthProvider>
+            </Switch>
         </ThemeProvider>
     );
 }
