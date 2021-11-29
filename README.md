@@ -1,6 +1,12 @@
-# Capstone Frontend - bootcamp neuefische.de
+# Unitype
 
-## Description
+* virtual keyboard layout management for writing unicode
+* with spring-boot-rest backend at romsenkabomsen/capstone-backend
+* capstone project of my participation at the java-backend-bootcamp @neuefische.de
+
+## Heroku
+[frontend](https://dev-capstone-backend.herokuapp.com/)
+[backend](https://dev-capstone-backend.herokuapp.com/)
 
 ## Badges
 
@@ -13,17 +19,3 @@ Sonar Cloud
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
 
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=romsenkabomsen_capstone-frontend&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=romsenkabomsen_capstone-frontend)
-
-## Development Protocol
-
-### 01.11.2021
-
-- created project and rolled out heroku ci using https://github.com/mars/create-react-app-buildpack#user-content-continue-development
-- changed project language to typescript
-- introduced prettier
-- dependencies: @types/node, @types/react, @types/react-dom, @mui/material, typescript, react, react-dom, react-scripts, react-icons, react-router-dom, axios, styled-components
-- devDependencies: prettier
-- add sonar code review workflow
-- add workflow to test build and deployment on pull request
-
-
