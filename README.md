@@ -1,12 +1,11 @@
 # Unitype
-
 * virtual keyboard layout management for writing unicode
-* with spring-boot-rest backend at romsenkabomsen/capstone-backend
+* with spring-boot-rest backend at [github.com/romsenkabomsen/capstone-backend](https://github.com/romsenkabomsen/capstone-backend)
 * capstone project of my participation at the java-backend-bootcamp @neuefische.de
 
 ## Heroku
-* [https://dev-capstone-frontend.herokuapp.com/](https://dev-capstone-frontend.herokuapp.com/)
-* [https://dev-capstone-backend.herokuapp.com/](https://dev-capstone-backend.herokuapp.com/)
+* [dev-capstone-frontend.herokuapp.com/](https://dev-capstone-frontend.herokuapp.com/)
+* [dev-capstone-backend.herokuapp.com/](https://dev-capstone-backend.herokuapp.com/)
 
 ## Badges
 
