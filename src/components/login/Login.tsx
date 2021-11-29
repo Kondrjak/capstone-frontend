@@ -7,12 +7,13 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import GithubIcon from "../logo/GithubIcon";
 import {useAuth} from "../../contexts/authentication";
 import LoginHeading from "./LoginHeading";
 import {useHistory, useLocation} from "react-router-dom";
 import axios from "axios";
 import {urlBackendLogin} from "../../params/urls";
+import GitHubIcon from "@mui/icons-material/GitHub"
+
 
 
 function LoginButton() {
@@ -28,11 +29,15 @@ function LoginButton() {
 
 function LoginWithGithubButton(onClick:any) {
     return <Button
-        onClick={onClick}
+        onClick={(event:React.MouseEvent) => {
+            window.location.href = "https://github.com/login/oauth/authorize" +
+            "?client_id=" +
+            "2e78a31afe900fd1aef7"
+        }}
         fullWidth
         variant="contained"
         sx={{mt: 3, mb: 2, bgcolor: '#EEE', color: '#111'}}
-        startIcon={<GithubIcon/>}
+        startIcon={<GitHubIcon/>}
     >
         Login with Github
     </Button>;
@@ -108,17 +113,10 @@ export default function Login(props:{}) {
                         control={<Checkbox value="remember" color="primary"/>}
                         label="Remember me"
                     />
+
                     <LoginButton/>
-                    <LoginWithGithubButton
-                        onClick={(event:any) => {
-                        window.location.href = "https://github.com/login/oauth/authorize" +
-                            "?client_id=" +
-                            "2e78a31afe900fd1aef7" +
-                            "&state=" +
-                            Math.random().toString()
-                    }}
-                    />
-                    https://github.com/login/oauth/authorize?client_id=2e78a31afe900fd1aef7
+                    <LoginWithGithubButton/>
+
                     <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">

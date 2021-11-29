@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import LoadOnScrollCodepointGroups from "../scrollable/LoadOnScrollCodepointGroups";
 import NewGroupForm from "./NewGroupForm";
 

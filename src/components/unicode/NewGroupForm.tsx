@@ -1,5 +1,5 @@
-import {Box, Button, Container, Input, Paper, Typography} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import {Button, Container} from "@mui/material";
+import React, {useState} from "react";
 import TextField from "@mui/material/TextField";
 import {CodepointGroup} from "../../types/tsTypes";
 import axios from "axios";
@@ -46,20 +46,6 @@ export default function NewGroupForm() {
                        onInput={handleCodepointsChange}
                        sx={{width: "1000px"}}
             />
-            {/*preview
-            <LoadOnScrollHorizontal>
-                <Button key="name" variant="contained">
-                    <Typography fontSize={"30px"}>
-                        {newGroup.name}
-                    </Typography>
-                </Button>
-                {newGroup.codepoints.map(glyph =>
-                    <Button key={glyph}>
-                        <Typography fontSize="28px">{glyph}</Typography>
-                    </Button>
-                )}
-            </LoadOnScrollHorizontal>
-            */}
             <Button
                 onClick={()=>{
                     postNewGroupToBackend(newGroup, token).then(
