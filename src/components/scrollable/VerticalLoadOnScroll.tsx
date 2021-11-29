@@ -1,6 +1,6 @@
 import {Box, Container, Skeleton} from "@mui/material";
 import React from "react";
-import {usePushItems} from "../../hooks/loadOnScrollPushItems";
+import {usePushItems} from "../../hooks/onScrollPushItems";
 import useInfiniteScroll from "react-infinite-scroll-hook";
 
 export default function VerticalLoadOnScroll({children}: { children: any }) {

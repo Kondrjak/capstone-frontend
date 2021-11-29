@@ -43,7 +43,8 @@ export default function WriteWithRevolver({layoutRevolver, baseClass = "default"
                     fontSize: "2em",
                     //fontWeight: 'bold',
                     fontFamily: "Verdana, Arial, Helvetica, sans-serif",
-                    border: "2px solid grey"}}
+                    border: "2px solid grey"
+                }}
                 ref={inputRef}
                 id={'editorArea'}
                 value={text}
