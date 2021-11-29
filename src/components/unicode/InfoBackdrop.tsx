@@ -17,4 +17,3 @@ export default function InfoBackdrop({show, symbol}:Props) {
                 <InfoCard codepoint={symbol}/>
             </Backdrop>
     );
-}

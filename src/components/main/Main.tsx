@@ -8,7 +8,6 @@ import LayoutGallery from "../keyLayout/LayoutGallery";
 import {Route, Switch} from "react-router-dom";
 import CodepointGroupsPage from "../unicode/CodepointGroupsPage";
 import Navigation from "./Navigation";
-import {defaultAlphanumerics} from "../../defaultGalleryContent/AlphaNumerics";
 import ClipboardProvider from "../../contexts/clipboard";
 import {exampleRevolver} from "../../params/virtualKeyboard";
 import Login from "../login/Login";

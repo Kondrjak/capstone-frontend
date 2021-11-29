@@ -16,7 +16,7 @@ export default function LoadOnScrollVertical({children}: { children: any }) {
     });
 
     return (
-        <Container ref={rootRef} style={{padding: "3px", listStyleType: ""}} key={2}>
+        <Container ref={rootRef} style={{padding: "3px", listStyleType: ""}}>
             {items.map((item: any) => (
                 <Box key={item.key}>
                     {item.value}
