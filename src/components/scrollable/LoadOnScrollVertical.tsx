@@ -12,7 +12,7 @@ export default function LoadOnScrollVertical({children}: { children: any }) {
         hasNextPage: hasNext,
         onLoadMore: loadMore,
         disabled: !!error,
-        rootMargin: '0px 400px 0px 0px',
+        rootMargin: '0px 0px 400px 0px',
     });
 
     return (

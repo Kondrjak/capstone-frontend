@@ -27,7 +27,7 @@ const actions = [
 
 
 type Props = {
-    group: { "code-points": string[]; name: string; "verbose-name": string },
+    group: {name: string;  codepoints: string[]; tags?: string[]; fonts?: string[]},
     handleNewKey: any
 }
 export default function GroupCard({group}: Props) {
@@ -39,18 +39,13 @@ export default function GroupCard({group}: Props) {
                         {group.name}
                     </Typography>
                 </Button>
-                {group["code-points"].map(symbol =>
+                {group.codepoints.map(symbol =>
                         <CodepointButton
                             key={symbol}
                             codepoint={symbol}
                             actions={actions}
                             onClick={()=>handlePasteBin(symbol)}/>
                 )}
-                <Button key="verbose">
-                    <Typography fontSize={fontSize}>
-                        {group["verbose-name"]}
-                    </Typography>
-                </Button>
             </LoadOnScrollHorizontal>
     );
 }
