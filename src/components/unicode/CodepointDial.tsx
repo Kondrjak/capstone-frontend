@@ -6,7 +6,7 @@ import SpeedDial from "@mui/material/SpeedDial";
 import CloseIcon from '@mui/icons-material/Close';
 
 type Props = { codepoint: string, actions: any[], onClick: any }
-export default function CodepointButton({codepoint, actions, onClick: handlePasteBin}: Props) {
+export default function CodepointDial({codepoint, actions, onClick: handlePasteBin}: Props) {
     const [isHoveringButton, setHoveringButton] = useState(false);
     const [isHoveringDial, setHoveringDial] = useState(false);
     return (

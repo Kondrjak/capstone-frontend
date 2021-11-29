@@ -13,8 +13,7 @@ export default function UnicodeRangeGallery() {
                 {defaultRanges.map(
                     (group: DefaultCodepointGroup, index: number) => <GroupCard
                         key={index}
-                        group={group}
-                        handleNewKey={null}/>)}
+                        group={group}/>)}
             </LoadOnScrollVertical>
         </>
     );

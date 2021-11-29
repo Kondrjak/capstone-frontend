@@ -1,11 +1,12 @@
 import {Button, Typography} from "@mui/material";
 import React from "react";
-import CodepointButton from "./CodepointButton";
+import CodepointDial from "./CodepointDial";
 import InfoIcon from "@mui/icons-material/Info";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import InfoBackdrop from "./InfoBackdrop";
 import LayoutToPasteBackdrop from "../keyLayout/LayoutToPasteBackdrop";
 import LoadOnScrollHorizontal from "../scrollable/LoadOnScrollHorizontal";
+import {CodepointGroup} from "../../types/tsTypes";
 
 
 function handlePasteBin(symbol:string){
@@ -27,8 +28,8 @@ const actions = [
 
 
 type Props = {
-    group: {name: string;  codepoints: string[]; tags?: string[]; fonts?: string[]},
-    handleNewKey: any
+    group: CodepointGroup,
+    handleNewKey?: any
 }
 export default function GroupCard({group}: Props) {
     const fontSize = "30px";
@@ -40,7 +41,7 @@ export default function GroupCard({group}: Props) {
                     </Typography>
                 </Button>
                 {group.codepoints.map(symbol =>
-                        <CodepointButton
+                        <CodepointDial
                             key={symbol}
                             codepoint={symbol}
                             actions={actions}

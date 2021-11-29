@@ -1,3 +1,4 @@
+import {Dispatch, SetStateAction} from "react";
 
 export type User = string
 
@@ -11,6 +12,8 @@ export type Tags = Tag[]
 export type Font = string
 
 export type Fonts = Font[]
+
+export type CodepointGroup = {name: string;  codepoints: string[]; tags?: string[]; fonts?: string[]}
 
 export type KeyRow = string
 // exampleKeyRow = 'y x c v b n m , . / {shift}'
@@ -34,3 +37,9 @@ export type KeyRevolver = KeyLayout[]
 
 export type LayoutAsString = string
 // example
+
+
+export type SetString = Dispatch<SetStateAction<string>>
+export type SetBoolean = Dispatch<SetStateAction<boolean>>
+
+export interface IAuthContext {token: string, setToken: SetString, setLoggedIn: SetBoolean}

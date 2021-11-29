@@ -1,13 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import LoadOnScrollCodepointGroups from "../scrollable/LoadOnScrollCodepointGroups";
-
-function NewCodepointGroup() {
-    return null;
-}
+import NewGroupForm from "./NewGroupForm";
 
 export default function CodepointGroupsPage() {
-    return (<>
-        <NewCodepointGroup/>
-        <LoadOnScrollCodepointGroups/>
-    </>);
+    return (
+        <>
+            <NewGroupForm/>
+            <LoadOnScrollCodepointGroups/>
+        </>)
 }
