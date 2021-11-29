@@ -65,7 +65,6 @@ export default function Login(props:{}) {
     }
 
     function postCredentials(credentials:any) {
-        console.log(credentials)
         return axios
             .post(urlBackendLogin, credentials)
             .then(response => response.data)

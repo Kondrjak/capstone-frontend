@@ -6,7 +6,7 @@ import {themes} from "../../themes/themes";
 import WriteWithRevolver from "../text/WriteWithRevolver";
 import LayoutGallery from "../keyLayout/LayoutGallery";
 import {Route, Switch} from "react-router-dom";
-import CodepointGroupGallery from "../unicode/CodepointGroupGallery";
+import CodepointGroupsPage from "../unicode/CodepointGroupsPage";
 import Navigation from "./Navigation";
 import {defaultAlphanumerics} from "../../defaultGalleryContent/AlphaNumerics";
 import ClipboardProvider from "../../contexts/clipboard";
@@ -35,7 +35,7 @@ export default function Main() {
                             <LayoutGallery/>
                         </Route>
                         <Route exact path="/codepoint-groups">
-                            <CodepointGroupGallery/>
+                            <CodepointGroupsPage/>
                         </Route>
                         <Route exact path="/unicode-ranges">
                             <UnicodeRangeGallery/>
