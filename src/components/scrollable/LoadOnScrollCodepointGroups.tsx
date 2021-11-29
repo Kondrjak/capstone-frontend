@@ -5,13 +5,9 @@ import {useAppendQuery} from "../../hooks/onScrollLoadItemsFromNextLink";
 import GroupCard from "../unicode/GroupCard";
 
 export default function LoadOnScrollCodepointGroups(props: {}) {
-    console.log("Component LoadOnScrollCodepointGroups was loaded")
-
     const {loading, hasNext, loadMoreFromLink, error, items} = useAppendQuery(
         "https://dev-capstone-backend.herokuapp.com/codepoint-group?page=0&size=20",
         "codepoint-group")
-
-    console.log("Use append query was loaded")
 
     const [infiniteRef, {rootRef}] = useInfiniteScroll({
         loading,
@@ -23,15 +19,12 @@ export default function LoadOnScrollCodepointGroups(props: {}) {
 
     return (
         <Container ref={rootRef} style={{padding: "3px", listStyleType: ""}} key={2}>
-            {items.map((item: any) => {
-                    console.log(item.value)
-                    return (
+            {items.map((item: any) => (
                         <GroupCard
                             key={item.key}
                             handleNewKey={null}
                             group={item}/>
                     )
-                }
             )}
             {hasNext && (
                 <Box key="loading" ref={infiniteRef}>

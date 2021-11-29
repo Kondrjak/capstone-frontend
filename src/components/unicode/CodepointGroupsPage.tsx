@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 import LoadOnScrollCodepointGroups from "../scrollable/LoadOnScrollCodepointGroups";
 
-export default function CodepointGroupGallery() {
-    return (
+function NewCodepointGroup() {
+    return null;
+}
+
+export default function CodepointGroupsPage() {
+    return (<>
+        <NewCodepointGroup/>
         <LoadOnScrollCodepointGroups/>
-    );
+    </>);
 }
