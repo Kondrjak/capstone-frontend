@@ -26,6 +26,7 @@ export function useFocusAndSelection() {
 
 export default function useKeyboardTextareaConnection() {
     const {htmlElRef: inputRef, setFocusWithoutOsKeyboardShowing, setSelection} = useFocusAndSelection()
+
     const [text, setText] = useState("")
     const [caret, setCaret] = useState({start: 0, end: 0, content: ""})
 
