@@ -1,7 +1,20 @@
 import {useRef, useState} from "react";
 
 /**
- * functions to get
+ * Attempt to make the selection visible after focus:
+ *
+ * function textWithCursorSymbol() {
+ *   const maybeStartCursor = (caret.start===text.length) ? "" : caretStartSymbol
+ *   const maybeEndCursor = (caret.start===caret.end) ? "" : caretEndSymbol
+ *   return text.slice(0, caret.start)
+ *       + caretStartSymbol
+ *       + text.slice(caret.start, caret.end)
+ *       + maybeEndCursor
+ *       + text.slice(caret.end, text.length)
+ +   }
+
+ const caretStartSymbol = "⃗"//"⃒"
+ const caretEndSymbol = "⃒"   //"⃖"
  */
 export function useFocusAndSelection() {
     const htmlElRef = useRef(null)
@@ -32,8 +45,6 @@ export default function useKeyboardTextareaConnection() {
 
     const [text, setText] = useState("")
     const [caret, setCaret] = useState({start: 0, end: 0, content: ""})
-    const caretStartSymbol = "⃗"//"⃒"
-    const caretEndSymbol = "⃒"   //"⃖"
 
     function saveChange(event: any) {
         setText(event.target.value);
@@ -83,18 +94,6 @@ export default function useKeyboardTextareaConnection() {
         setFocusWithoutOsKeyboardShowing()
     }
 
-    /**
-     * Attempt to make the selection visible after focus
-     */
-    function textWithCursorSymbol() {
-        const maybeStartCursor = (caret.start===text.length) ? "" : caretStartSymbol
-        const maybeEndCursor = (caret.start===caret.end) ? "" : caretEndSymbol
-        return text.slice(0, caret.start)
-            + caretStartSymbol
-            + text.slice(caret.start, caret.end)
-            + maybeEndCursor
-            + text.slice(caret.end, text.length)
-    }
 
 
     return {inputRef, text, saveChange, saveCaretSelection, handleBackspace, typeSymbol}
